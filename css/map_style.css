@@ -1,0 +1,417 @@
+html,
+body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family:'Times New Roman', Times, serif ;
+      background-color:#e6f7ff;
+      overflow:hidden;
+    }
+    .sidebar{
+      position: fixed;
+      top:0;
+      right:-200px;
+      width: 200px;
+      height:100vh;
+      transition: 0.3s;
+      border-bottom-left-radius: 10px;
+      background-color: ivory;
+      opacity: 0.8; 
+      z-index: 12;
+  }
+  .on{
+      right:0px;
+  }
+  
+  .sidebar ul{
+      margin:0;
+      padding: 20px 0;
+
+  }
+  .sidebar ul li img{
+    border:none;
+    border-radius: 50%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    height: 70px;
+    width: 90px;
+    opacity: 1;
+  }
+  .sidebar ul li{
+      list-style: none;
+      text-align: center;
+      padding-left: 20px; 
+     }
+  .sidebar ul li a{
+      text-decoration: none;
+      padding:10px 20px;
+      display: block;
+      border-bottom: 1px solid rgba(0, 8, 54, 0.2);
+      color: darkslategray;
+      width: 120px;
+      color: #000836;
+      font-weight: 300;
+  }
+  .sidebar ul li a:hover{
+    border-bottom: 2px solid palevioletred;
+    transform: scale(1.08);
+    transition-duration: 1s;
+  }
+
+  .sidebarBtn{
+      position: absolute;
+      top:20px;
+      left:-50px;
+      width: 50px;
+      height: 50px;
+      box-sizing: border-box;
+      cursor: pointer;
+      /* background:white; */
+      background-color: transparent;
+      border: none;
+      outline: none;
+      z-index: 13;
+  }
+  .sidebarBtn span{
+      display: block;
+      width: 30px;
+      height: 2px;
+      background: #717fcf;;
+      border-radius: 5px;
+      position: absolute;
+      top:20px;
+      right: 20px;
+      transition: .3s;
+  }
+  .sidebarBtn span::before{
+      content: '';
+      position: absolute;
+      top: 10px;
+      right: 0px;
+      width: 100%;
+      height: 3px;
+      border-radius: 5px;
+      background-color: #717fcf;;
+      transition: 0.3s;
+  }
+  .sidebarBtn span::after{
+      content: '';
+      position: absolute;
+      top: -10px;
+      right: 0px;
+      width: 100%;
+      height: 3px;
+      border-radius: 5px;
+      background-color: #717fcf;;
+      transition: 0.3s;
+  }
+  
+  .sidebarBtn.toggle span{
+      background: transparent;
+  }
+  
+  .sidebarBtn.toggle span:before{
+      top:0;
+      transform: rotate(45deg);
+  }
+  .sidebarBtn.toggle span:after{
+      top:0;
+      transform: rotate(-45deg);
+  }
+
+.container-weather{
+  position: absolute;
+  left: 0px;
+  top: 180px;
+  border-radius: 20px;
+  border:none;
+}
+i{
+ margin-bottom:20px;
+}
+.weather-buttons{
+ position: absolute;
+ left: 12px;
+ top: 5%;
+ /* background-color: lightgreen; */
+ font-size: 25px;
+ color: #000836;
+ opacity:0.8;
+ padding:10px;
+ z-index: 12;
+}
+
+ #map{
+  height: 85%; 
+  width: 91%; 
+  padding:10px;
+  margin: 0 20px;
+  position: absolute;
+  top: 10%;
+  left:50px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  z-index: 1;
+  }
+
+  .expanded {
+    width: 100%;
+    height: 100%;
+    transform: scale(1.25);
+    transition: 2s;
+  }
+
+  .mapboxgl-canvas {
+    outline: none;
+  }
+    h1{
+      padding-top: 10px;
+      text-align: center;
+      color:black;
+      background-color: #e6f7ff;
+      color: #000836;
+      opacity: 0.7;
+      font-family: "Alfa Slab One", cursive;
+      font-weight: 450;
+      font-size: 30px;
+    }
+
+    .logo{
+      width: 4%;
+      height: 6%;
+      position: absolute;
+      top: 2%;
+      left: 1%;
+      z-index: 2;
+      /* border-radius: 20px; */
+    }
+    
+    /* form{
+      padding: 0;
+      margin-bottom: 15px;
+      margin-left: 20px;
+    }
+    input{
+      outline: none;
+      border:none;
+      height: 25px;
+      width:100px;
+      margin-right: 5px;
+      padding-left: 10px;
+      border-radius: 5px;
+      color:color: #000836;;
+    }
+    form input[type="button"]{
+        margin-top:5px;
+        border:none;
+        outline:none;
+        height:25px;
+        width: 60px;
+        background: #AFE1AF;
+        font-size:14px;
+        border-radius:8px;
+        color:darkslategray;
+    } */
+
+
+
+    .weatherbox{
+      position: absolute; /* Position the weather box relative to the map container */
+      top: 90px; /* Adjust the top position as needed */
+      right: 60px; /* Adjust the left position as needed */
+      background-color:ivory;
+      width: 180px;
+      height: 180px;
+      padding:10px;
+      z-index: 2;
+      /* border: 2px solid grey; */
+      border-radius: 10px;
+      opacity: 0.6;
+      color: #000836;
+      display: none;
+      }
+    .weatherbox p{
+      text-align: left;
+      margin-left: 8px;
+      font-weight: bold;
+    }
+
+    .mapinfo{
+      position: absolute; /* Position the weather box relative to the map container */
+      top: 300px; /* Adjust the top position as needed */
+      right: 60px; /* Adjust the left position as needed */
+      background-color:ivory;
+      width: 180px;
+      height: 220px;
+      padding:10px;
+      z-index: 2;
+      /* border: 2px solid grey; */
+      border-radius: 10px;
+      opacity: 0.6;
+      color: #000836;
+      display: none; 
+      }
+    .mapinfo p{
+      text-align: left;
+      margin-left: 8px;
+      font-weight: bold;
+    }
+
+    .overlay{
+      display: hidden;
+      z-index: 11;
+      width: 100vw;
+      height: 100vw;
+      background-color: rgba(0, 0, 0, 0.5);
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+    }
+
+    .o2 {
+      display: none;
+      z-index: 10;
+      width: 200vw;
+      height: 90vw;
+      background-color: rgba(0, 0, 0, 0.5);
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .box{
+      background-color: white;
+      padding: 20px;
+      text-align: center;
+      width: 40vb;
+      height: 20vh;
+      position: absolute;
+      top: 40vh;
+      left:40vw;
+      background-color: white;
+      border-radius: 10px;
+      color: darkslategray;
+    }
+    
+    .o2 .box{
+      width: 50vb;
+    }
+
+    .box input[type='text']{
+      padding: 5px;
+      margin: 3px 10px;
+      border: none;
+      border-bottom: 2px solid palevioletred;
+      background-color: none;
+      outline: none;
+      height: 5vh;
+      width: 10vw;
+      text-align: left;
+      font-family: 'Times New Roman', Times, serif;
+      color: darkslategray;
+    }
+
+    .box input[type='text']:focus{
+      background-color: transparent;
+    }
+
+    .box input[type='text']:active{
+      background-color: transparent;
+    }
+
+    .box input[type="button"]{
+      background-color: palevioletred;
+      border: none;
+      height: 5vh;
+      width: 10vb;
+      border-radius: 5px;
+      color: white;
+      font-family: 'Times New Roman', Times, serif;
+      color: rgb(37, 59, 59);
+    }
+  /* <----------------------------------------------------------> */
+  .header-area{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  }
+  #infoBox{
+    display: none;
+    width: 40vb;
+    background-color: white;
+    margin-top: 8px;
+    height: 40vh;
+    z-index: 2;
+    top: 40vh;
+    left:40vw;
+    border-radius: 10px;
+    position: absolute; /* Position the weather box relative to the map container */
+    top: 70px; /* Adjust the top position as needed */
+    padding: 20px;
+    text-align: center; 
+    font-family: 'Times New Roman', Times, serif;
+    text-align: justify;
+    color: darkslategray;
+     
+  }
+  .instn{
+    padding: 2px;
+    border: none;
+    border-bottom: 2px solid palevioletred;
+    background-color: none;
+    outline: none;
+    height: 3vh;
+    font-family: 'Times New Roman', Times, serif;
+    color: darkslategray;
+
+  }
+  .snowflake {
+    position: fixed;
+    background: #fff;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: snowfall linear infinite;
+    animation-duration: 5s;
+    z-index: 10;
+}
+
+@keyframes snowfall {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(100vh);
+    }
+}
+.raindrop {
+  position: fixed;
+  background: #6baed6; /* Raindrop color */
+  width: 2px; /* Adjust the width of the raindrop */
+  height: 10px; /* Adjust the height of the raindrop */
+  pointer-events: none;
+  animation: rainfall linear infinite;
+  animation-duration: 1s; /* Adjust the duration of the animation */
+  z-index: 10;
+}
+
+@keyframes rainfall {
+  0% {
+      transform: translateY(0);
+  }
+
+  100% {
+      transform: translateY(100vh);
+  }
+}

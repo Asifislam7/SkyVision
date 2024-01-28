@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sky-Vision</title>
+    <link rel="shortcut icon" href="/images/Travel Logo.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/20bb288a86.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../scripts/testing.js"></script>
+    <script src="https://unpkg.com/@google-cloud/text-to-speech"></script>
+    <style>
+        * {
+    margin: 0px;
+    padding: 0px;
+    
+  }
+  body{
+    background-color: #e6f7ff;
+  }
+  .header-area {
+    padding: 50px 30px;
+  }
+  .headerbg:hover{
+   
+    transition-duration: 1s;
+  }
+  .header-top-area {
+    overflow: hidden;
+  }
+  .header-logo-area {
+    float: left;
+    width: 10%;
+  }
+  .header-logo-area img {
+    width: 100px;
+  }
+  .menu-delivery-area {
+    float: right;
+    width: 30%;
+  }
+  .inside-area {
+    padding-bottom: 40px;
+  }
+  .inside-area ul {
+    float: right;
+    overflow: hidden;
+  }
+  .inside-area ul li {
+    list-style: none;
+    float: left;
+  }
+  .inside-area ul li img {
+    width: 35px;
+    padding-right: 10px;
+  }
+  .inside-area ul li h3 {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 450;
+    font-size: 18px;
+  }
+  .menu-area ul {
+    list-style: none;
+    float: right;
+    overflow: hidden;
+  }
+  .menu-area ul li {
+    float: left;
+    padding-left: 40px;
+  }
+  .menu-area ul a:hover{
+    color: white;
+    transition-duration: 1s;
+    
+  }
+  .menu-area ul li:hover{
+    transform: scale(1.1);
+    transition-duration: 1s;
+
+  }
+
+  .menu-area ul a {
+    text-decoration: none;
+    color:#000836;
+    font-family: "Bebas Neue", cursive;
+    font-size: 24px;
+    font-weight: 100;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+  .header-bottom-area {
+    overflow: hidden;
+  }
+  .header-bottom-area .header-text-area {
+    float: left;
+    padding-top: 190px;
+  }
+  .header-bottom-area .header-text-area h3 {
+    text-transform: uppercase;
+    color:#000836;
+    font-family: "Bebas Neue", cursive;
+    font-weight: 300;
+    letter-spacing: 1px;
+    padding: 5px 10px;
+    font-size: 18px;
+    border: 2px dashed #000836;
+    display: inline;
+    text-align: center;
+  }
+  .header-bottom-area .header-text-area h1 {
+    text-transform: capitalize;
+    color:#000836;
+    font-family: "Alfa Slab One", cursive;
+    font-size: 95px;
+    letter-spacing: 1px;
+    text-shadow: #ede7e9 2px 1px 2px;
+  }
+  .header-bottom-area .header-text-area h1:hover {
+    transform: scale(0.9);
+    transition-duration: 1s;
+  }
+  .header-bottom-area .header-text-area h2 {
+    text-transform: uppercase;
+    color:#000836;
+    font-size: 44px;
+    text-transform:capitalize;
+    font-family: "Alfa Slab One", cursive;
+    letter-spacing: 1px;
+    text-shadow: rgb(255, 255, 255) 2px 1px 2px;
+    font-weight: 400;
+  }
+  .header-bottom-area .header-text-area h2:hover {
+    transform: scale(0.9);
+    transition-duration: 1s;
+  }
+  .section-1 {
+    margin: 50px 80px;
+    overflow: hidden;
+    justify-content: center;
+  }
+  .section-1 .left-side {
+    float: left;
+    width: 48.5%;
+  }
+  .section-1 .left-side img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: rgb(0, 0, 0) 3px 10px 25px -15px;
+
+  }
+  .section-1 .left-side img:hover {
+    transform: scale(1.1);
+    transition-duration: 2s;
+   
+  }
+  .section-1 .right-side {
+    float: right;
+    width: 48.5%;
+  }
+  .section-1 .right-side img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: rgb(0, 0, 0) 3px 10px 25px -15px;
+
+  }
+  .section-1 .right-side img:hover {
+    transform: scale(1.1);
+    transition-duration: 2s;
+  }
+
+  .section-1 .right-side .top {
+    margin-bottom: 47px;
+  }
+  .section-2 {
+    margin: 40px 80px 50px;
+    text-align: center;
+  }
+  .section-2 h2 {
+    text-transform: uppercase;
+    color: darkslategrey;
+    background-color: rgb(255, 192, 69);
+    display: inline-block;
+    font-family: "Bebas Neue", cursive;
+    font-size: 26px;
+    font-weight: 400;
+    padding: 6px 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+  }
+  .section-2 h2:hover {
+    transform: scale(1.1);
+    transition-duration: 1s;
+  }
+  .section-2 h2 a{
+    text-decoration: none;
+    color: darkslategrey
+  }
+  .section-2 h1 {
+    color: #000836;
+    font-family: "Alfa Slab One", cursive;
+    font-size: 35px;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+  .section-2 p {
+    text-align: center;
+    font-size: larger;
+    font-family:"Bebas Neue", cursive;
+    letter-spacing:1px;
+    color: darkslategrey;
+    width: 75%;
+    margin: auto;
+  }
+  /* .section-3 {
+    margin: 80px 50px;
+    overflow: hidden;
+    text-align: center;
+  }
+  .section-3 ul {
+    overflow: hidden;
+    list-style: none;
+  }
+  .section-3 ul li {
+    float: left;
+    width: 30%;
+    margin-left: 50px;
+  }
+  .section-3 ul li h1 {
+    text-transform: uppercase;
+    color: rgb(61, 37, 20);
+    font-family: "Bebas Neue", cursive;
+    font-size: 26px;
+    font-weight: 400;
+  }
+  .section-3 ul li p {
+    color: rgb(61, 37, 20);
+    width: 55%;
+    margin: auto;
+  }
+  .section-3 ul li button {
+    font-family: "Alfa Slab One", cursive;
+    background-color: rgb(191, 34, 34);
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 10px 25px;
+    margin-top: 30px;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  .section-3 ul li:nth-child(1),
+  .section-3 ul li:nth-child(3) {
+    padding: 20px 0px;
+  } */
+  .section-4 {
+    margin: 50px 35px;
+  }
+  .section-4 .event-area {
+    width: 100%;
+    margin: auto;
+    background-color: rgb(255, 255, 255);
+    overflow: hidden;
+    box-shadow: rgb(0, 0, 0) 3px 10px 25px -15px;
+    border-radius:20px;
+
+  }
+  .section-4 .event-area .section-4-text {
+    float: left;
+    margin-left: 10px;
+    width: 46%;
+    padding: 40px 30px;
+    text-align: justify;
+  }
+  .section-4 .event-area .section-4-text h3 {
+    text-transform: uppercase;
+    font-family: "Bebas Neue", cursive;
+    font-size: 25px;
+    font-weight: 400;
+    color: rgb(61, 37, 20);
+  }
+  .section-4 .event-area .section-4-text h1 {
+    text-transform: uppercase;
+    font-family: "Alfa Slab One", cursive;
+    font-weight: 400;
+    color: rgb(61, 37, 20);
+    font-size: 35px;
+    padding-bottom: 20px;
+  }
+  .section-4 .event-area .section-4-text p {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  .section-4 .event-area .section-4-img {
+    float: right;
+    width: 48%;
+  }
+
+  @media screen and (max-width:768px) {
+    .section-4 .event-area .section-4-img img {
+        display:none;
+    }
+  .section-4 .event-area .section-4-text {
+  margin-left: 0;
+   width: 90%;
+  
+  }
+
+  }
+  .section-4 .event-area .section-4-img img {
+    width: 98%;
+    margin: 14px 10px;
+    height: 480px;
+  }
+
+  .tutorial {
+    margin: 40px 80px 50px;
+    text-align: center;
+  }
+  .tutorial h2{
+    text-transform: uppercase;
+    color: rgb(61, 37, 20);
+    background-color: rgb(255, 192, 69);
+    display: inline-block;
+    font-family: "Bebas Neue", cursive;
+    font-size: 26px;
+    font-weight: 400;
+    padding: 6px 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+  }
+  .tutorial h2 a{
+    text-decoration: none;
+    color: rgb(61, 37, 20);
+  }
+  .tutorial h2:hover{
+    transform: scale(1.1);
+    transition-duration: 1s;
+  }
+  .section-5 {
+    margin: auto;
+    position: relative;
+    width: 100%;
+
+  }
+  .Contact-us {
+    width:80%;
+    margin: auto;
+    text-align: center;
+  }
+  .Contact-us h2 {
+    font-family: "Bebas Neue", cursive;
+    font-weight: 200;
+    color: rgb(61, 37, 20);
+    letter-spacing: 2px;
+    font-size: 26px;
+  }
+  .Contact-us h1 {
+    font-family: "Alfa Slab One", cursive;
+    font-weight: 400;
+    color: rgb(61, 37, 20);
+    font-size: 40px;
+    padding-bottom: 40px;
+    letter-spacing: 1px;
+  }
+  .Contact-form {
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .Contact-form ul {
+    list-style: none;
+    overflow: hidden;
+  }
+  /* .Contact-form ul li {
+    float: left;
+  } */
+  .Contact-form ul li input {
+    width: 90%;
+    padding: 15px 17px;
+    margin: 15px;
+    border: 1px solid darkslategray;
+    border-radius: 3px;
+    outline: none;
+    font-size: 18px;
+    background-color: transparent;
+  }
+  .Contact-form ul li input::placeholder {
+    color: rgb(61, 61, 61);
+    font-family: "Bebas Neue", cursive;
+    font-weight: 200;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    /* text-align: center; */
+  }
+  .Contact-form ul li input[type="submit"] {
+    width: 364px;
+    background-color:#003366;
+    color: rgb(255, 255, 255);
+    font-family: "Alfa Slab One", cursive;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    font-size: 18px;
+  }
+  .Contact-form ul li input[type="submit"]:hover{
+    transform: scale(1.1);
+    transition-duration: 1s;
+  }
+  /* .section-5-images .image1 {
+    position: absolute;
+    left: 0px;
+    top: -130px;
+  }
+  .section-5-images .image2 {
+    position: absolute;
+    left: 230px;
+    top: 70px;
+  }
+  .section-5-images .image3 {
+    position: absolute;
+    right: 0px;
+    bottom: -270px;
+  } */
+  footer {
+    width: 98%;
+    margin: auto auto 40px;
+  }
+  .footer-area {
+    padding: 50px 30px 10px;
+  }
+  .footer-top-area img {
+    width: 400px;
+  }
+  .center-area {
+    overflow: hidden;
+  }
+  .center-area .footer-text-area {
+    width: 30%;
+    float: left;
+    margin: 0px;
+    padding-top: 20px;
+  }
+  .center-area .footer-text-area p {
+    color: rgb(255, 255, 255);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+  }
+  .loc-mail-area {
+    float: right;
+    color: rgb(255, 255, 255);
+    width: 20%;
+  }
+  .loc-mail-area ul:first-child {
+    list-style: none;
+    padding-top: 50px;
+    overflow: hidden;
+  }
+  .loc-mail-area ul:last-child {
+    list-style: none;
+    padding-top: 8px;
+    overflow: hidden;
+  }
+  .loc-mail-area ul li {
+    float: left;
+    margin-left: 10px;
+    font-size: 18px;
+  }
+  .footer-bottom-area {
+    overflow: hidden;
+    padding-top: 150px;
+    padding-bottom: 5px;
+  }
+  .footer-bottom-area .left-bottom {
+    float: left;
+  }
+  .footer-bottom-area .left-bottom p {
+    font-family: "Bebas Neue", cursive;
+    color: rgb(255, 255, 255);
+  }
+  .footer-bottom-area .right-bottom {
+    float: right;
+  }
+  .footer-bottom-area .right-bottom ul {
+    list-style: none;
+    float: right;
+    overflow: hidden;
+  }
+  .footer-bottom-area .right-bottom ul li {
+    float: left;
+    padding-left: 20px;
+  }
+  .footer-bottom-area .right-bottom ul li a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 28px;
+  }
+    </style>
+</head>
+<body>
+    <!-- header area start here  -->
+    <header style="background-image: url('/images/airplane-flying-clouds.jpg'); background-repeat: no-repeat;background-size: 100% 100%;" class="headerbg">
+        <div class="header-area">
+            <div class="header-top-area">
+                <div class="header-logo-area">
+                    <img src="/images/Travel Logo.png" style="width: 100px; height: 100px; margin-left: 25px; padding: 10px; border-radius:30px;">
+                </div>
+                <div class="menu-delivery-area">
+            
+                    <div class="menu-area">
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Menu</a></li>
+                            <li><a href="login">Login</a></li>
+                            <li><a href="mapbox">Simulate</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="header-bottom-area">
+                <div class="header-text-area">
+                    <h3>It is a good time for you to be limitless.</h3>
+                    <h1>SkyVision</h1>
+                    <h2>A Map based flight Simulator</h2>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <section class="section-2">
+    <h2><a href="#">Learn from Tutorials</a></h2>
+
+        <h1>Select Your Area</h1>
+        <p>A flight simulator is a specialized software application or hardware device that replicates the experience of flying an aircraft in a simulated environment. Its primary purpose is to provide users with a realistic and immersive flight experience without the need to be in an actual aircraft. Flight simulators are utilized for various purposes, including pilot training, entertainment, skill development, and even research.
+           <br>
+            These simulators recreate the physics, controls, and conditions of flying an aircraft, allowing users to practice flying maneuvers, navigating through different weather conditions, and dealing with emergency scenarios. They often feature highly detailed virtual cockpits, accurate terrain and scenery, and realistic flight dynamics to provide users with an authentic aviation experience.
+  <br>
+            Flight simulators are used by a wide range of individuals, including professional pilots for training and practice, aviation enthusiasts who want to experience the thrill of flying different types of aircraft, and gamers who enjoy the challenge of mastering flight controls and navigation. Additionally, flight simulation technology is employed by aerospace companies and researchers to test aircraft designs, study aerodynamics, and simulate complex flight scenarios.
+            <br>
+            Overall, flight simulators serve as powerful tools for learning, entertainment, and exploration within the realm of aviation, allowing users to experience the joys and challenges of flying while remaining safely grounded.
+        </p>
+    </section>
+   
+
+    <section class="section-1">
+        <div class="left-side">
+            <img src="/images/cockpit1.jpeg" alt="Burger">
+        </div>
+        <div class="right-side">
+            <div class="top">
+                <img src="/images/cockpit2.jpg" alt="Burger">
+            </div>
+            <!-- <div class="bottom">
+                <img src="/images/cockpit3.jpeg" alt="Burger">
+            </div> -->
+        </div>
+    </section>
+ 
+    <section class="section-4">
+        <div class="event-area">
+            <div class="section-4-text">
+                <h3>Discover</h3>
+                <h1>Upcoming Features</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda ab in saepe temporibus voluptatem ea itaque libero! Voluptas aliquam recusandae quisquam suscipit, cupiditate dolorem delectus excepturi hic quaerat. Culpa, maiores? Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda soluta sint veritatis suscipit aperiam quod expedita, quibusdam amet optio sunt commodi cumque. Eum a similique, et unde error optio modi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt maiores, ducimus obcaecati tenetur et commodi vitae veniam doloribus earum ullam rerum dicta ad? Iusto quia, aspernatur omnis eligendi explicabo neque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis sapiente suscipit esse obcaecati blanditiis eaque vero itaque, sunt perspiciatis minus quos molestiae? Dolorem dolores eveniet saepe exercitationem error voluptates fugit?</p>
+            </div>
+            <div class="section-4-img">
+                <img src="/images/guide.jpeg" alt="">
+            </div>
+        </div>
+    </section>
+
+    <div class="tutorial">
+        <h2><a href="mapbox">Start Simulating</a></h2>
+    </div>
+  
+    <section class="section-5">
+        <div class="Contact-us">
+            <h2>Contact Us</h2>
+            <h1>Get your Free Version Now</h1>
+            <form action="" class="Contact-form">
+                <ul>
+                    <li><input type="text" placeholder="NAME"></li>
+                    <li><input type="email" placeholder="EMAIL"></li>
+                </ul>
+                <ul>
+                    <li><input type="text" placeholder="DATE" onfocus="(this.type='date')"></li>
+                    <li><input type="number" placeholder="Age"></li>
+                </ul>
+                <ul>
+                    <li><input type="text" placeholder="Players" onfocus="(this.type='number')"></li>
+                    <li><input type="submit" value="Submit"></li>
+                </ul>
+            </form>
+        </div>
+  
+    </section>
+   
+    <footer style="background-image: url('/images/footer.jpeg'); background-repeat: no-repeat;background-size: 100% 100%; width: 100%; margin-bottom:0%;">
+        <div class="footer-area">
+            <div class="footer-top-area">
+                <img src="/images/Travel Logo.png" alt="Logo" style="width: 100px;">
+            </div>
+            <div class="center-area">
+                <div class="footer-text-area">
+                  <p>At SkyVision, we aim to provide an immersive, risk free and realistic experience proceeding towards excellence and team management.</p>
+                </div>
+                <div class="loc-mail-area">
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i></li>
+                        <li><h4>Sky-Vision Head Office, Aligarh</h4></li>
+                    </ul>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i></li>
+                        <li><h4>syedasmasaeed21@gmail.com</h4></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom-area">
+                <div class="left-bottom">
+                    <p>© Sky-Vision2023 @Asma and Asif All rights reserved</p>
+                </div>
+                <div class="right-bottom">
+                    <ul>
+                        <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
+                        <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+                        <li><a href="#"><i class="fab fa-youtube-square"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+ 
+
+    <script>
+        console.log("hello there")
+  
+
+        
+    </script>
+</body>
+</html>

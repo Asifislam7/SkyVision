@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+  <button id="myvoice" type="button">Listen to me</button>
+</div>
+<script>
+  const listenBtn = document.getElementById('myvoice');
+//    const name= "Asif Islam";
+//   let mssg=  prompt("What do you want to listen");
+// listenBtn.addEventListener('click', (e) => {
+//   e.preventDefault();
+//   const msg = new SpeechSynthesisUtterance(
+//     mssg
+//   );
+//   window.speechSynthesis.speak(msg);
+
+// });
+listenBtn.addEventListener('click', () => {
+  console.log("clicked");
+  const url1 = `https://api.mapbox.com/geocoding/v5/mapbox.places/77.2090057,28.6138954.json?access_token=pk.eyJ1Ijoic2FzYWVlZCIsImEiOiJjbG03dnlsN3UwMjVxM3BxcXdxdmx5Y2prIn0.23CWN4iMiXMiosL3VqGUIQ`;
+
+// Use an async function to work with asynchronous operations
+async function fetchData() {
+  try {
+    const response1 = await fetch(url1); // Use await to wait for the response
+    if (!response1.ok) {
+      throw new Error('Network response was not ok.');
+    }
+    const result1 = await response1.text(); // Use await to wait for the response body
+    var area = JSON.parse(result1).features[0].place_name;
+    
+    const text = `You are flying over ${area}`;
+    const msg = new SpeechSynthesisUtterance(text);
+    window.speechSynthesis.speak(msg);
+  } catch (error) {
+    console.log(error);
+  }
+}
+fetchData(); // Call the async function to initiate the process
+});
+
+</script>
+</body>
+</html>

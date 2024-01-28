@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" type="image/png" sizes="32&times;32" href="car.jpg" />
+    <title>Animated| login and sign-up page</title>
+    <!-- <link rel="stylesheet" href="./animlog.css"> -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+        transition: 1s ease;
+      }
+      body {
+        background-image: url("../images/5166950.jpg");
+        background-size: cover;
+        background-attachment: fixed;
+        perspective: 1000px;
+        /* display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    min-height: 100vh;
+    background: bisque; */
+      }
+
+      .box {
+        position: absolute;
+        margin-top: 70px;
+        width: 370px;
+        height: 100px;
+        background: none;
+        left: calc(50% - 120px);
+        top: calc(50% - 50px);
+        transform-style: preserve-3d;
+        /* transform: rotateY(-90deg); */
+      }
+      .box div {
+        width: 370px;
+        height: 556px;
+        position: absolute;
+        background-image: radial-gradient(#fff, ivory);
+        box-shadow: -3px -3px 25px rgb(6, 71, 71),
+          inset -3px -3px 15px rgb(61, 201, 228),
+          inset -3px -3px 15px rgb(213, 243, 21);
+        border: 5px solid #f7f7f6;
+      }
+
+      .box div:nth-child(5) {
+        height: 556px;
+        box-shadow: 0px 0px 10px #00a6ff, 0px 0px 30px #00a6ff;
+      }
+      .a {
+        transform: rotateY(0deg) translateZ(175px);
+      }
+      .b {
+        transform: rotateY(90deg) translateZ(175px);
+      }
+      .c {
+        transform: rotateY(180deg) translateZ(175px);
+      }
+      .d {
+        transform: rotateY(270deg) translateZ(175px);
+      }
+      .e {
+        transform: rotateX(-90deg) translateZ(325px);
+      }
+      .a label {
+        position: relative;
+        width: 200px;
+        left: 65px;
+        top: 170px;
+        color: white;
+        font-size: 18px;
+        height: 50px;
+        font-weight: 600;
+        line-height: 50px;
+        margin: 20px 0px;
+        text-align: center;
+        display: block;
+        background-image: linear-gradient(45deg, #1b578f, #f15213);
+        border-radius: 25px;
+        cursor: pointer;
+        box-shadow: 0px 0px 8px #296ca7, 0px 0px 30px #2a6488;
+      }
+      #sup,
+      #btn {
+        background-image: linear-gradient(45deg, #1b578f, #c9d7b791);
+        color: white;
+        cursor: pointer;
+      }
+      #btn:focus {
+        width: calc(100% - 80px);
+        left: 40px;
+      }
+     
+      .frm input {
+        position: relative;
+        width: calc(100% - 90px);
+        left: 40px;
+        display: block;
+        text-align: center;
+        line-height: 40px;
+        top: 50px;
+        background: none;
+        outline: none;
+        border: none;
+        border-radius: 25px;
+        box-shadow: 0px 0px 5px #4451ff, 0px 0px 30px #033e78;
+        margin: 20px 0px;
+        font-size: 16px;
+      }
+      .frm input:focus {
+        width: calc(100% - 40px);
+        left: 20px;
+        background: #c2d5e8;
+        box-shadow: 0px 0px 5px #182388, 0px 0px 30px #133088;
+      }
+      #btm {
+        position: absolute;
+        bottom: 20px;
+        font-size: 20px;
+        right:25%;
+        text-align: center;
+        width: 50%;
+        cursor: pointer;
+        color: darkslategrey;
+        background-color: rgb(255, 192, 69);   
+        font-weight: 400;
+        padding: 6px 15px;
+
+        border-radius: 10px;
+      }
+      .title {
+        width: 50%;
+        text-align: center;
+        line-height: 30px;
+        font-size: 20px;
+        margin-left: 80px;
+        font-weight: bold;
+        color: white;
+        background-image: linear-gradient(45deg, #1b578f, #f15213);
+        padding: 6px 15px;
+
+border-radius: 10px;
+      }
+      #btm:hover {
+        transform: scale(1.1);
+        transition-duration: 1s;
+      }
+
+      #chk1:checked ~ .box {
+        transform: rotateY(-180deg);
+      }
+      #chk2:checked ~ .box {
+        transform: rotateY(-90deg);
+      }
+
+      #signuptitle {
+        margin-top: 20px;
+      }
+
+  
+    </style>
+  </head>
+  <body>
+   
+       
+            
+               
+                <!-- <div class="bottom">
+                    <img src="/images/cockpit3.jpeg" alt="Burger">
+                </div> -->
+            
+            
+    <input type="radio" id="chk1" name="al" style="display: none" required />
+    <input type="radio" id="chk2" name="al" style="display: none" required />
+
+    <div class="box">
+      <div class="a">
+        <label for="chk1">Log In</label>
+        <label for="chk2" id="sup">Sign Up</label>
+      </div>
+      <div class="b">
+        <form action="/sign" class="frm" method="post">
+          <h6 class="title" id="signuptitle">SIGN-UP FORM</h6>
+          <input type="text" name="fname" placeholder="Full Name" required />
+          <input type="text" name="username" placeholder="Username" required />
+          <input type="text" name="email" placeholder="Email Adress" required />
+          <input
+            type="password"
+            name="password1"
+            placeholder="Create Password"
+            required
+          />
+          <input
+            type="password"
+            name="password2"
+            placeholder="Confirm Password"
+            required
+          />
+          <input type="submit" value="Sign Up" id="btn" />
+          <!-- <button type="submit" id="btn">Sign Up</button> -->
+          <label for="chk1" id="btm">Login here</label>
+        </form>
+      </div>
+      <div class="c">
+        <form action="/login" class="frm" method="post">
+          <br /><br /><br /><br /><br /><br />
+
+
+          <h6 class="title">Login Form</h6>
+          <input
+            type="text"
+            name="orgname"
+            placeholder="Username or Email"
+            required
+          />
+          <input
+            type="password"
+            name="orgpass"
+            placeholder="Enter Password"
+            required
+          />
+          <input type="submit" value="Login" id="btn" />
+
+          <label for="chk2" id="btm">Signup here</label>
+        </form>
+      </div>
+      <div class="d"></div>
+      <div class="e"></div>
+    </div>
+
+
+    <!-- <script src="./animated_login .js"></script> -->
+  </body>
+</html>

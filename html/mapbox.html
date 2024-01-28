@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SkyVision</title>
+   
+  <!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script> -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/18.6.4/Tween.min.js"></script> -->
+  <script src="../scripts/script6.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/map_style.css">
+
+  <!-- For MapBox -->
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>  
+  <script src="https://cdn.jsdelivr.net/npm/mapbox-gl-rain-layer@latest/dist/mapbox-gl-rain-layer.min.js"></script>
+  
+
+</head>
+<body id="Body">
+  <img class="logo" src="../images/footerlogo.png" alt="logo">
+
+    <h1 id="heading">SkyVision-Scouting the Infinite</h1>
+    
+</div>
+<!-- <----------------------Audios-----------------> 
+<audio id="backgroundmusic">
+  <source src="bg1.mp3">
+</audio>
+<audio id="day">
+  <source src="day.mp3">
+</audio>
+<audio id="night">
+  <source src="night.mp3">
+</audio>
+<audio id="location">
+  <source src="location.mp3">
+</audio>
+<audio id="backward">
+  <source src="backward.mp3">
+</audio>
+
+
+<!-- <--------------------------------------------> 
+
+<div class="hidden" id="infoBox">
+  <p id="information">
+  <!-- instructions -->
+  <h3 class="instn">Instructions</h3>
+  Press "Up arrow" to move forward <br>
+  Press "Down Arrow" to move backward <br>
+  Press "Left Arrow" or "Right Arrow" to turn left and right respectively.<br/>
+  Press "1" or "2" to pitch down and pitch up respectively.<br/>
+  Press "3" or "4" to yaw right and yaw left respectively.<br/>
+  Press "8" to stop the plane.<br/> 
+  </p>
+</div>
+
+  <!-- <form>
+  <input type="text" id="src" name="fname" placeholder="Source" >
+  <input type="text" id="des" name="fname" placeholder="Destination">
+  <input type="button" id="move" value="Move" >
+  </form> -->
+
+
+  <div class="sidebar">
+    <ul>
+      <li><img src="../images/user.png" alt="user_profilePhoto"></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Record</a></li>
+        <li><a href="#">Tutorial</a></li>
+        <li><a href="#">Help</a></li>
+        <li><a href="index.html">Logout</a></li>
+    </ul>
+    <button class="sidebarBtn" id="hamburger">
+        <span></span>
+    </button>
+</div>
+
+
+  <div class="container-weather">    
+    <div class="weather-buttons">
+      <!-- <i class="fa-solid fa-temperature-half"></i> 
+      <i class="fa-solid fa-water"></i>
+      <i class="fa-solid fa-wind"></i>
+      <i class="fa-solid fa-gauge"></i>
+      <i class="fa-solid fa-cloud-sun-rain"></i>
+      <i class="fa-solid fa-rainbow"></i>
+      -->
+      <i id ="rainDay" class="fa-solid fa-cloud-sun-rain"></i>
+      <i class="fa-solid fa-cloud-moon-rain"></i>
+      <i class="fa-solid fa-cloud-bolt"></i>
+      <!-- <i class="fa-solid fa-cloud-sun"></i> -->
+      <i id="snowflake" class="fa-regular fa-snowflake"></i>
+      <i id="cloudyMoon" class="fa-solid fa-cloud-moon"></i>
+      <i class="fa-solid fa-globe" onclick="displayOverlay()"></i>
+      <i class="fa-solid fa-robot" id="robot" style="cursor: pointer;"></i>
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      <i class="fa-solid fa-gamepad"></i>
+    </div>
+  </div>
+  <!-- logo -->
+  <div class="weatherbox" id="weather-box">
+    <p id="weather">
+      <!-- bring the info here -->
+    </p>
+  </div>
+
+    <div id="map"></div>
+    
+    <div class="overlay" id="overlay">
+      <div class="box" id="box">
+        <h3>Enter the location where you want to fly!</h3>
+        <input type="text" id="locationInput" placeholder="NEW YORK" required>
+        <input type="button" value="Go" id="start" onclick="submitLocation()">
+      </div>
+    </div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbYFLU67Jb_zrVZtVookfHBe2QcIQWhlg&libraries=geometry&callback=initMap" async defer></script>
+</body>
+</html>

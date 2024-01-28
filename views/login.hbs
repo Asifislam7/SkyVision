@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" type="image/png" sizes="32&times;32" />
+    <title>Login page</title>
+    <!-- <link rel="stylesheet" href="./animlog.css"> -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+        transition: 1s ease;
+      }
+      body {
+    
+        /* display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    min-height: 100vh;
+    background: bisque; */
+      }
+
+      .box {
+        position: absolute;
+        margin-top: 70px;
+        width: 370px;
+        height: 100px;
+        background: none;
+        left: calc(50% - 120px);
+        top: calc(50% - 50px);
+        transform-style: preserve-3d;
+       
+        /* transform: rotateY(-90deg); */
+      }
+      .box div {
+        width: 370px;
+        height: 556px;
+        position: absolute;
+        background-image: radial-gradient(#fff,#e6fdff);
+        box-shadow: -3px -3px 20px rgb(6, 71, 71),
+          inset -3px -3px 15px #e6f7ff;
+        border: 5px solid #f7f7f6;
+        border-radius: 20px;
+      }
+
+      .box div:nth-child(5) {
+        height: 556px;
+        box-shadow: 0px 0px 10px #00a6ff, 0px 0px 30px #00a6ff;
+      }
+      .a {
+        transform: rotateY(0deg) translateZ(175px);
+      }
+      .b {
+        transform: rotateY(90deg) translateZ(175px);
+      }
+      .c {
+        transform: rotateY(180deg) translateZ(175px);
+      }
+      .d {
+        transform: rotateY(270deg) translateZ(175px);
+      }
+      .e {
+        transform: rotateX(-90deg) translateZ(325px);
+      }
+      .a label {
+        position: relative;
+        width: 200px;
+        left: 65px;
+        top: 170px;
+        color: white;
+        font-size: 18px;
+        height: 50px;
+        font-weight: 600;
+        line-height: 50px;
+        margin: 20px 0px;
+        text-align: center;
+        display: block;
+        background-image: linear-gradient(45deg, #1b578f, #000830);
+        border-radius: 25px;
+        cursor: pointer;
+        box-shadow: 0px 0px 8px #296ca7, 0px 0px 30px #2a6488;
+      }
+      #sup,
+      #btn {
+        background-image: linear-gradient(45deg, #1b578f, #000830);
+        color: white;
+        cursor: pointer;
+      }
+      #btn:focus {
+        width: calc(100% - 80px);
+        left: 40px;
+      }
+     
+      .frm input {
+        position: relative;
+        width: calc(100% - 90px);
+        left: 40px;
+        display: block;
+        text-align: center;
+        line-height: 40px;
+        top: 50px;
+        background: none;
+        outline: none;
+        border: none;
+        border-radius: 25px;
+        box-shadow: 0px 0px 10px #000836, 0px 0px 10px #ffffff;
+        margin: 20px 0px;
+        font-size: 16px;
+      }
+      .frm input:focus {
+        width: calc(100%-60px);
+        left: 20px;
+        background: #e6fdff;
+        box-shadow: 0px 0px 5px #000836, 0px 0px 30px #09163c;
+      }
+      #btm {
+        position: absolute;
+        bottom: 20px;
+        font-size: 16px;
+        right:15%;
+        text-align: center;
+        width: 70%;
+        cursor: pointer;
+        color:darkslategrey;
+        padding: 6px 15px;
+
+       
+      }
+      .title {
+        width: 50%;
+        text-align: center;
+        line-height: 30px;
+        font-size: 20px;
+        margin-left: 80px;
+        font-weight: bold;
+        color: white;
+        background-image: linear-gradient(45deg, #1b578f, #f15213);
+        padding: 6px 15px;
+
+border-radius: 10px;
+      }
+      /* #btm:hover {
+        transform: scale(1.1);
+        transition-duration: 1s;
+      } */
+
+      #chk1:checked ~ .box {
+        transform: rotateY(-180deg);
+      }
+      #chk2:checked ~ .box {
+        transform: rotateY(-90deg);
+      }
+
+      #signuptitle {
+        margin-top: 20px;
+      }
+
+      .video-background {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Make it cover the entire viewport */
+    overflow: hidden; /* Hide overflowing content */
+}
+
+#video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the entire container */
+}
+
+.content { 
+    width: 100%;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    box-sizing: border-box;
+}
+
+
+video::-webkit-media-controls {
+    display: none;
+}
+
+video::-webkit-media-controls-play-button {
+    display: none!important;
+}
+
+video::-webkit-media-controls-start-playback-button {
+    display: none!important;
+}
+.top{
+    position: relative;
+}
+    </style>
+  </head>
+  <body>
+    <div class="video-background">
+        <video autoplay muted loop id="video-bg">
+        <source src="/videos/plane.mp4" type="video/mp4">
+        </video>
+  </div>
+        <div class="content">
+
+               
+                <!-- <div class="bottom">
+                    <img src="/images/cockpit3.jpeg" alt="Burger">
+                </div> -->
+            
+            
+    <input type="radio" id="chk1" name="al" style="display: none" required />
+    <input type="radio" id="chk2" name="al" style="display: none" required />
+
+    <div class="box">
+      <div class="a">
+        <label for="chk1">Log In</label>
+        <label for="chk2" id="sup">Sign Up</label>
+      </div>
+      <div class="b">
+        <form action="/signup" class="frm" method="POST">
+          <h6 class="title" id="signuptitle">SIGN-UP FORM</h6>
+          <input type="text" name="fname" placeholder="Full Name" required />
+          <input type="text" name="username" placeholder="Username" required />
+          <input type="text" name="email" placeholder="Email Adress" required />
+          <input
+            type="password"
+            name="password1"
+            placeholder="Create Password"
+            required
+          />
+          <input
+            type="password"
+            name="password2"
+            placeholder="Confirm Password"
+            required
+          />
+          <input type="submit" value="Sign Up" id="btn" />
+          <!-- <button type="submit" id="btn">Sign Up</button> -->
+          <!-- <label for="chk1" id="btm">Login here</label> -->
+          <label for="chk1" id="btm">Already have an account?<br><p style="color: #000836;">Login</p></label>   
+        </form>
+      </div>
+      <div class="c">
+        <form action="/login" class="frm" method="POST">
+          <br /><br /><br /><br /><br /><br />
+
+          <h6 class="title" id="">Login Form</h6>
+          <input
+            type="text"
+            name="email"
+            placeholder="Email"
+            required
+          />
+          <input
+            type="password"
+            name="orgpass"
+            placeholder="Enter Password"
+            required
+          />
+          <input type="submit" value="Login" id="btn" />
+          <label for="chk2" id="btm">Don't have an account?<br><p style="color: #000836;">Register here</p></label>
+        </form>
+      </div>
+      <div class="d"></div>
+      <div class="e"></div>
+    </div>
+</div>
+    <!-- <script src="./animated_login .js"></script> -->
+  </body>
+</html>
